@@ -1,0 +1,38 @@
+package java_DSA.sorting;
+
+public class RecursiveBubbleSort {
+
+	public static void bubbleSort(int arr[], int n) {
+		// Base case : arr of size 1 is already sorted.
+		if (n == 1) {
+			return;
+		}
+
+		for (int j = 0; j <= n - 2; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+
+		// Recurse for the remaining unsorted array
+		bubbleSort(arr, n - 1);
+	}
+
+	public static void main(String[] args) {
+		int[] arr = { 13, 46, 24, 52, 20, 9 };
+		int n = arr.length;
+
+		System.out.println("Before Using Bubble Sort:");
+		for (int i : arr)
+			System.out.print(i + " ");
+		System.out.println();
+
+		bubbleSort(arr, n);
+
+		System.out.println("After Using Bubble Sort:");
+		for (int i : arr)
+			System.out.print(i + " ");
+	}
+}
